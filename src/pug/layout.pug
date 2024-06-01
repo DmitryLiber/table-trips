@@ -1,0 +1,21 @@
+doctype
+include vars
+include mixins
+block vars
+
+html(lang='ru')
+  head
+    +head
+  body
+    +header
+    block content
+      +content-wrapper
+    template#status-template
+      .modal
+        button.modal__close.close(type='button', aria-label='Закрыть')
+        .modal__content
+          .modal__header
+            h2.modal__title
+            p.modal__text
+    block modals
+    block scripts

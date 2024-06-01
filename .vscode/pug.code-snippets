@@ -1,0 +1,35 @@
+{
+  "href": {
+    "prefix": "vdv",
+    "body": "\"javascript:void(0)\"",
+    "description": "href placeholder"
+  },
+
+  "Swiper": {
+    "prefix": "swiper",
+    "body": [
+      ".${1:имя-блока}__slider.swiper\n\t.swiper-wrapper\n\teach val in Array(5)\n\t\t.${1:имя-блока}__slide.swiper-slide\n\t.${1:имя-блока}__nav\n\t\t+btn('<', '', true).${1:имя-блока}__arrow.arrow-prev\n\t\t+btn('>', '', true).${1:имя-блока}__arrow.arrow-next\n\t.${1:имя-блока}__pagination"
+    ],
+    "description": "Добавляет базовый HTML код слайдера Swiper"
+  },
+
+  "Picture": {
+    "prefix": "picture",
+    "body": [
+      "+picture(folder = \"./upload\", name, isDesktop = true, isTablet = true, count, ext = \"webp\", proportions = false)"
+    ],
+    "description": "Добавляет базовый HTML код табов"
+  },
+
+  "Add each in array": {
+    "prefix": "eacha",
+    "body": ["each item in ${1:Array}(5)"],
+    "description": "Добавляет конструкцию each in array"
+  },
+
+  "Add style icon": {
+    "prefix": "stylei",
+    "body": ["style='--icon:url(\"../img$1\");'"],
+    "description": "Добавляет style icon"
+  }
+}

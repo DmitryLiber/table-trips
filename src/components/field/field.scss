@@ -1,0 +1,99 @@
+@layer component {
+  .field {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &__label {
+      flex-shrink: 0;
+      margin-right: 8px;
+    }
+
+    &__box {
+      @include font(14px, 1.58);
+
+      width: 100%;
+      padding: 4px 4px 4px 12px;
+      letter-spacing: -0.01em;
+      background-color: cl(whte);
+      border: 1px solid cl(shared);
+      border-radius: var(--radius-xs);
+      outline: none;
+      cursor: pointer;
+
+      &[type='date'] {
+        max-height: 32px;
+      }
+
+      &[type='date']::-webkit-inner-spin-button,
+      &[type='date']::-webkit-calendar-picker-indicator {
+        padding: 3px;
+        background-image: none;
+        transform: translateX(3px);
+        cursor: pointer;
+
+        @include variable-icon(
+          url('/img/i-calendar.svg'),
+          24px,
+          cl(shared-sixth)
+        );
+      }
+
+      &::placeholder {
+        @include font(14px, 1.58);
+
+        color: cl(text-second);
+      }
+
+      &:focus {
+        border-color: cl(primary);
+      }
+    }
+
+    &__clear {
+      position: absolute;
+      right: 28px;
+      display: none;
+
+      &::before {
+        @include variable-icon(
+          url('/img/i-cross-alt.svg'),
+          24px,
+          cl(shared-sixth)
+        );
+      }
+    }
+  }
+}
+
+@layer mod {
+  .field--icon-append {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .field {
+      &__box {
+        padding-right: calc(var(--icon-size) + 4px);
+      }
+    }
+
+    &::after {
+      position: absolute;
+      right: 4px;
+      margin-left: 16px;
+      pointer-events: none;
+      @include variable-icon(var(--icon), var(--icon-size), var(--icon-color));
+    }
+  }
+}
+
+@layer state {
+  .field--clear {
+    .field {
+      &__clear {
+        display: block;
+      }
+    }
+  }
+}

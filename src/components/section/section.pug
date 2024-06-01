@@ -1,0 +1,4 @@
+mixin section({tag = 'section'} = {}, mods)
+  - const allMods = mods && mods.split(',').map((mod) => `section--${mod.trim()}`).join(' ')
+  #{tag}.section(class=allMods)&attributes(attributes)
+    block

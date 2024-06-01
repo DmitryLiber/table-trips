@@ -1,0 +1,18 @@
+mixin image(path, width, height, alt, className)
+  -
+    var attributes = {
+      width : width || "",
+      height : height || "",
+      alt : alt || ""
+    };
+
+  if className && className !== "lazyload"
+    - attributes.class = className;
+    - attributes.src = path;
+  else if className === "lazyload"
+    - attributes.class = className;
+    - attributes['data-src'] = path;
+  else
+    - attributes.src = path;
+
+  img&attributes(attributes)

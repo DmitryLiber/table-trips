@@ -1,0 +1,44 @@
+.table-filter {
+  &__head {
+    display: flex;
+    gap: 15px 24px;
+    align-items: center;
+    padding-top: 18px;
+    padding-bottom: 22px;
+  }
+
+  background-color: cl(whte);
+
+  &__controls {
+    padding-top: 8px;
+    background-color: cl(bg);
+
+    .container {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+  }
+
+  &__fields {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    .field__box {
+      width: 180px;
+    }
+  }
+
+  &__search {
+    width: 260px;
+
+    --icon: url('/img/i-search.svg');
+    --icon-color: #{cl(shared-sixth)};
+    --icon-size: 24px;
+  }
+
+  &__addons {
+    margin-left: auto;
+  }
+}

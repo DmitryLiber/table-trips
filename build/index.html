@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8"><!-- не забыть удалить мета тег robots ниже-->
+	<meta name="robots" content="noindex,nofollow"><!-- не забыть удалить мета тег robots выше-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no">
+	<title>Мои поездки</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="preload" href="./fonts/inter-400.woff2" as="font" crossorigin="anonymous">
+	<link rel="preload" href="./fonts/inter-600.woff2" as="font" crossorigin="anonymous">
+	<link rel="preload" href="./fonts/inter-700.woff2" as="font" crossorigin="anonymous">
+	<link rel="shortcut icon" href="./img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="./img/favicon/favicon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="./img/favicon/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="./img/favicon/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="./img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="./img/favicon/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="./img/favicon/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="./img/favicon/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="./img/favicon/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="./img/favicon/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="./img/favicon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="./img/favicon/android-chrome-192x192.png" sizes="192x192">
+	<link rel="icon" type="image/png" href="./img/favicon/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="./img/favicon/favicon-16x16.png" sizes="16x16">
+	<link rel="mask-icon" href="./img/favicon/safari-pinned-tab.svg" color="#C2AB81">
+	<meta name="msapplication-TileColor" content="#272727">
+	<meta name="msapplication-TileImage" content="./img/favicon/mstile-144x144.png">
+	<meta name="theme-color" content="#C2AB81">
+	<script>
+		var BASE_URL = './'; // заменить на путь к папке со статикой: css, js, img, fonts в битриксе
+	</script>
+	<script type="module" crossorigin src="./index.pug-fab18b27.js"></script>
+	<link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+	<header class="header">
+		<div class="container header__wrapper">
+			<nav class="header__nav">
+				<ul class="header__nav-list">
+					<li class="header__nav-item">
+						<a class="header__nav-link active" href="javascript:void(0)">Поездки</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="header__profile">
+				<a class="link link--icon-append link--dashed header__profile-logout" href="javascript:void(0)">Заболоцкий К.О</a>
+			</div>
+		</div>
+	</header>
+	<main class="content-wrapper">
+		<section class="section table-filter">
+			<div class="container table-filter__head">
+				<h2 class="title">Мои поездки</h2>
+				<button class="btn btn--icon-prepend" style="--icon:url(&quot;../img/i-plus.svg&quot;);--icon-size: 22px;">Оформить поездку</button>
+			</div>
+			<form class="table-filter__controls" action="javascript:void(0)">
+				<div class="container">
+					<div class="table-filter__fields">
+						<div class="field">
+							<button class="field__clear js-field-clear" type="button"></button>
+							<label class="field__label">Период с:</label>
+							<input class="field__box js-input-date" type="text" placeholder="Выбрать...">
+						</div>
+						<div class="field">
+							<button class="field__clear js-field-clear" type="button"></button>
+							<label class="field__label">по:</label>
+							<input class="field__box js-input-date" type="text" placeholder="Выбрать...">
+						</div>
+					</div>
+					<div class="field field--icon-append table-filter__search">
+						<input class="field__box" type="search" placeholder="Поиск...">
+					</div>
+					<button class="link link--small link--icon-prepend js-reset-filter" style="--icon:url(&quot;../img/i-cross.svg&quot;);--icon-size: 16px;" type="reset">Сбросить все</button>
+					<div class="table-filter__addons">
+						<div class="checkbox">
+							<input class="visually-hidden" id="archive-tips" type="checkbox" name="archive-tips">
+							<label class="checkbox__label" for="archive-tips">
+								<span></span>Показать архивные поездки
+							</label>
+						</div>
+					</div>
+				</div>
+			</form>
+		</section>
+		<div class="section">
+			<div class="progress" style="--percent: 30%;"></div>
+		</div>
+		<section class="section table-travel">
+			<div class="container">
+				<div class="table-travel__rows">
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text table-travel__col-text--alt">
+								<span class="table-travel__cities">Кременчуг-Константиновское, Петропавловск-Камчатский, Новосибирск, Волгоград, Саратов</span>
+								<span class="info-box" title="Кременчуг-Константиновское, Петропавловск-Камчатский, Новосибирск, Волгоград, Саратов"></span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+					<div class="table-travel__row">
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">№ поездки</span>
+							<a class="link" href="javascript:void(0)">000115</a>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Дата поездки</span>
+							<div class="table-travel__col-text">22.02.2024 - 27.02.2024</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, план</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col table-travel__col--alt">
+							<span class="table-travel__col-title">Сумма, факт</span>
+							<div class="table-travel__col-text">29 400,00</div>
+						</div>
+						<div class="table-travel__col">
+							<span class="table-travel__col-title">Город</span>
+							<div class="table-travel__col-text">
+								<span class="table-travel__cities">Москва, Ярославль, Ижевск, Владимир</span>
+							</div>
+						</div>
+						<div class="table-travel__col table-travel__col--secondary">
+							<span class="table-travel__col-title">Статус</span>
+							<span class="table-travel__status">Документы</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<template id="status-template">
+		<div class="modal">
+			<button class="modal__close close" type="button" aria-label="Закрыть"></button>
+			<div class="modal__content">
+				<div class="modal__header">
+					<h2 class="modal__title"></h2>
+					<p class="modal__text"></p>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+
+</html>

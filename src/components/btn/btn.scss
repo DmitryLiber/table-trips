@@ -1,0 +1,30 @@
+@layer component {
+  .btn {
+    @include font(14px, 1.71, 600);
+
+    padding: 0 8px;
+    color: cl(whte);
+    letter-spacing: -0.01em;
+    background-color: cl(primary);
+    border-radius: var(--radius-xxs);
+    transition: filter $time;
+
+    @include mq-hover {
+      filter: brightness(1.1);
+    }
+  }
+}
+
+@layer mod {
+  .btn--icon-prepend {
+    --icon-color: #{cl(whte)};
+
+    display: flex;
+    align-items: center;
+
+    &::before {
+      margin-right: 4px;
+      @include variable-icon(var(--icon), var(--icon-size), var(--icon-color));
+    }
+  }
+}

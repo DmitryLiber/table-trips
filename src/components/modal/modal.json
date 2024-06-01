@@ -1,0 +1,24 @@
+{
+  "modal": [
+    {
+      "label": "Ваше имя",
+      "type": "text",
+      "id": "call-name",
+      "name": "name",
+      "required": true
+    },
+    {
+      "label": "E-mail",
+      "type": "email",
+      "id": "call-email",
+      "name": "email",
+      "required": true
+    },
+    {
+      "type": "tel",
+      "id": "call-number",
+      "name": "number",
+      "required": false
+    }
+  ]
+}

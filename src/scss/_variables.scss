@@ -1,0 +1,132 @@
+@use 'sass:math';
+
+@layer base, component, mod, state;
+
+/* СOLORS
+------------------------ */
+
+// [ ] Указать цвета
+$colors: (
+  // base
+  'primary': #4094f7,
+  'alt': #000,
+  'blck': #000,
+  'whte': #fff,
+
+  // text
+  'text': #252c32,
+  'text-alt': #0e73f6,
+  'text-second': #9aa6ac,
+
+  // bg
+  'bg': #f4faff,
+
+  // surfaces
+  'surface': #fff,
+  'surface-alt': #f5f5f5,
+  'surface-second': #1a2024,
+
+  // shared
+  'shared': #dde2e4,
+  'shared-alt': #dde2e4,
+  'shared-second': #d7edff,
+  'shared-third': #84919a,
+  'shared-fourth': #eef0f2,
+  'shared-fifth': #dee2e6,
+  'shared-sixth': #b0babf,
+
+  // actions
+  'error': #f44336
+);
+
+/* EFFECTS
+------------------------ */
+$tr-1: ease;
+$tr-2: ease-in;
+$tr-3: ease-out;
+$tr-4: ease-in-out;
+$tr: ease-in;
+$time: 0.3s;
+$time-1: 0.1s;
+$time-2: 0.2s;
+$time-3: 0.3s;
+$time-4: 0.4s;
+$time-5: 0.5s;
+
+// [ ] Указать название шрифтов
+
+/* FONTS
+------------------------- */
+$font-primary: 'inter', 'Arial', sans-serif;
+
+// $font-secondary: '', 'Times New Roman', serif; - Если шрифт с засечками
+
+/* GRID
+------------------------- */
+$max-width: 1440px;
+$max-width-text: 760px;
+
+// [ ] Изменить отступы по умолчанию
+
+/* WRAPPER PADDINGS
+------------------------- */
+$pad-s: 25px;
+$pad-m: 50px;
+$pad-l: 80px;
+$pad-xl: 145px;
+
+/* BREAKPOINTS
+------------------------- */
+$xs: 480px;
+$s: 620px;
+$m: 768px;
+$ms: 1024px;
+$mt: 1200px;
+$l: 1366px;
+$ls: 1440px;
+$lt: 1536px;
+$xl: 1920px;
+$xls: 2560px;
+$retina: '(-webkit-min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx),(min-resolution: 144dpi)';
+
+/* CONTENT WIDTH MULTIPLIER
+------------------------- */
+
+$w-m: math.div(strip-unit(($m - $pad-m * 2)), 100%);
+$w-l: math.div(strip-unit((1366px - $pad-l * 2)), 100%);
+$w-xl: math.div(strip-unit(($max-width - $pad-xl * 2)), 100%);
+
+@layer base {
+  :root {
+    @if $colors {
+      @each $key, $value in $colors {
+        --color-#{$key}: #{$value};
+        --color-#{$key}--rgb: #{hextorgb($value)};
+      }
+    }
+
+    --font-primary: #{$font-primary};
+
+    /* WRAPPER PADDINGS
+  ------------------------- */
+    --pad-s: 17px;
+    --pad-m: 32px;
+    --pad-l: 60px;
+    --pad-xl: 110px;
+
+    /** BORDER RADIUS
+  ------------------------- */
+    --radius-xxxs: 2px;
+    --radius-xxs: 4px;
+    --radius-xs: 6px;
+    --radius-s: 10px;
+    --radius-xxl: 100%;
+
+    /** Z-INDEX SYSTEM
+  ------------------------- */
+    --index-1: 100; // Куки, чаты, фиксированные баннеры, кнопка вверх
+    --index-2: 200; // Шапка
+    --index-3: 1100; // Модалки - Такой, чтобы перекрыть сайдбар битрикса
+    --index-4: 1200; // Система уведомлений
+  }
+}

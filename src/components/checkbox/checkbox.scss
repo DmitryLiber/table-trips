@@ -1,0 +1,57 @@
+@layer component {
+  .checkbox {
+    --bg-color-active: #{cl(primary)};
+
+    &__label {
+      @include font(12px, 1.33);
+
+      display: flex;
+      padding-top: 4px;
+      cursor: pointer;
+      user-select: none;
+
+      span {
+        @include center;
+
+        flex-shrink: 0;
+        width: 16px;
+        aspect-ratio: 1;
+        margin-right: 8px;
+        overflow: hidden;
+        border: 1px solid cl(shared-fifth);
+        border-radius: var(--radius-xxs);
+        transition: background-color $time;
+
+        &::after {
+          @include variable-icon(url('/img/i-check.svg'), 8px, cl(whte));
+
+          opacity: 0;
+          transition: opacity $time;
+          will-change: opacity;
+        }
+      }
+    }
+  }
+}
+
+@layer state {
+  .checkbox {
+    input:checked + label > span {
+      background-color: var(--bg-color-active);
+
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &.error {
+      .checkbox {
+        &__label {
+          span {
+            border: 1px solid rgba(#{cl(error--rgb)}, 0.8);
+          }
+        }
+      }
+    }
+  }
+}

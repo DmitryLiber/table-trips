@@ -1,0 +1,7 @@
+mixin checkbox({id, name, value} = {}, mods)
+  - const allMods = mods && mods.split(',').map((mod) => `checkbox--${mod.trim()}`).join(' ')
+  .checkbox(class=allMods)
+    input.visually-hidden(id=id, type='checkbox', name=name, value=value)&attributes(attributes)
+    label.checkbox__label(for=id)
+      span
+      block

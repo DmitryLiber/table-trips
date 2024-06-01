@@ -1,0 +1,5 @@
+mixin btn({} = {}, mods)
+  - const allMods = mods && mods.split(',').map((mod) => `btn--${mod.trim()}`).join(' ')
+  - const tag = attributes.href ? 'a' : 'button'
+  #{tag}.btn(class=allMods)&attributes(attributes)
+    block

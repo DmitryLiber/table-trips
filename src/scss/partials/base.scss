@@ -1,0 +1,199 @@
+/* BASE STYLES
+---------------------------- */
+@layer base {
+  html {
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    --scrollbar-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    min-width: 360px;
+    min-height: 100vh;
+    margin: 0;
+    margin-right: var(--scrollbar-width);
+    color: cl(text);
+    font-size: 14px;
+    font-family: var(--font-primary);
+    line-height: 120%;
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    background-color: cl(bg);
+  }
+
+  // [ ] настраиваем кастомный скроллбар
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: cl(surface-second, 0.2) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @include mq($l) {
+      background: transparent;
+    }
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @include mq($l) {
+      background-color: cl(surface-second, 0.2);
+      border-radius: var(--radius-s);
+    }
+  }
+
+  ::selection {
+    color: cl(bg);
+    text-shadow: none;
+    background: cl(primary);
+  }
+
+  input {
+    border-radius: 0;
+    appearance: none;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      margin: 0;
+      appearance: none;
+    }
+
+    &[type='number'] {
+      appearance: textfield;
+    }
+
+    &[type='text'],
+    &[type='search'],
+    &[type='date'],
+    &[type='tel'],
+    &[type='email'],
+    &[type='password'] {
+      font-family: var(--font-primary);
+      appearance: none;
+    }
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  fieldset,
+  dl,
+  dd {
+    margin: 0;
+    padding: 0;
+  }
+
+  fieldset {
+    border: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 0;
+    user-select: none;
+  }
+
+  a {
+    color: cl(text);
+    text-decoration: none;
+    transition: color $time $tr;
+  }
+
+  p {
+    margin: 0 0 25px;
+  }
+
+  button {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+  }
+
+  div[class*='__text'],
+  div[class*='__details'],
+  div[class*='__note'] {
+    p:only-of-type,
+    p:last-of-type {
+      margin: 0;
+    }
+  }
+
+  [class*='image'] img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+
+  .close {
+    --size: 30px;
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--size);
+    padding: 0;
+    color: #b3bac8;
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform $time $tr;
+    aspect-ratio: 1;
+
+    @include mq($m) {
+      --size: 50px;
+    }
+
+    svg {
+      pointer-events: none;
+    }
+  }
+
+  .modal-open {
+    overflow: hidden;
+  }
+}

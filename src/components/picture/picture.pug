@@ -1,0 +1,19 @@
+mixin picture(folder = "./upload", name, isDesktop = true, isTablet = true, count, ext = "webp", proportions = false)
+  if (proportions)
+    // Меняется соотношение сторон при адаптации
+  picture&attributes(attributes)
+    if isDesktop
+      source(
+        media=`(min-width: ${media.DESKTOP}px)`,
+        srcset=`${folder}/${name}${count ? `-${count}` : ``}-l@1x.${ext}, ${folder}/${name}${count ? `-${count}` : ``}-l@2x.${ext} 2x`
+      )
+    if isTablet
+      source(
+        media=`(min-width: ${media.TABLET}px)`,
+        srcset=`${folder}/${name}${count ? `-${count}` : ``}-m@1x.${ext}, ${folder}/${name}${count ? `-${count}` : ``}-m@2x.${ext} 2x`
+      )
+    img(
+      src=`${folder}/${name}${count ? `-${count}` : ``}@1x.${ext}`,
+      srcset=`${folder}/${name}${count ? `-${count}` : ``}@2x.${ext} 2x`,
+      alt='Описание изображения'
+    )

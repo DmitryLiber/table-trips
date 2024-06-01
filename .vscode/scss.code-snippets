@@ -1,0 +1,114 @@
+{
+  "pseudo": {
+    "prefix": "pse",
+    "body": [
+      "content: \"\";",
+      "position: absolute;",
+      "top: $1;",
+      "left: $2;",
+      "width: ;",
+      "height: ;"
+    ],
+    "description": "pseudoelement"
+  },
+  "media hover": {
+    "prefix": "mqh",
+    "body": ["@include mq-hover() {", " $1$0", "}"],
+    "description": "media query hover"
+  },
+  "media tablet max": {
+    "prefix": "mqmm",
+    "body": ["@include mq-max($$m) {", " $1$0", "}"],
+    "description": "media query mixin"
+  },
+  "media desktop max": {
+    "prefix": "mqml",
+    "body": ["@include mq-max($$l) {", " $1$0", "}"],
+    "description": "media query mixin"
+  },
+  "media desktop max large": {
+    "prefix": "mqmxl",
+    "body": ["@include mq-max($$xl) {", " $1$0", "}"],
+    "description": "media query mixin"
+  },
+  "media tablet": {
+    "prefix": "mqm",
+    "body": ["@include mq($$m) {", " $1$0", "}"],
+    "description": "media query mixin"
+  },
+  "media desktop": {
+    "prefix": "mql",
+    "body": ["@include mq($$l) {", " $1$0", "}"],
+    "description": "media query mixin"
+  },
+  "media desktop large": {
+    "prefix": "mqxl",
+    "body": ["@include mq($$xl) {", " $1$0", "}"],
+    "description": "media query mixin"
+  },
+  "font": {
+    "prefix": "ft",
+    "body": ["@include font(${1:size}, line-height, weight);"],
+    "description": "Задает размер шрифта"
+  },
+  "reset-list": {
+    "prefix": "rl",
+    "body": ["@include reset-list();", "\n", "$2"],
+    "description": "reset-list mixin"
+  },
+  "include": {
+    "prefix": "in",
+    "body": ["@include $1;", "\n", "$2"],
+    "description": "include"
+  },
+  "cl": {
+    "prefix": "cl",
+    "body": ["#{cl($1)}"],
+    "description": "cl"
+  },
+  "Not last-child": {
+    "prefix": "nlc",
+    "body": ["&:not(:last-child) {\n\t$1\n}"],
+    "description": "Исключая последний объект"
+  },
+  "Not first-child": {
+    "prefix": "nfc",
+    "body": ["&:not(:first-child) {\n\t$1\n}"],
+    "description": "Исключая последний объект"
+  },
+  "fc": {
+    "prefix": "fc",
+    "body": ["&:first-child{\n\t$0\n}"],
+    "description": "fc"
+  },
+  "nc": {
+    "prefix": "nc",
+    "body": ["&:nth-child($0){}"],
+    "description": "nc"
+  },
+  "BeforeAfter": {
+    "prefix": "ba",
+    "body": ["&::before,&::after{\n\tcontent:'';\n\t$0\n}"],
+    "description": "ba"
+  },
+  "After": {
+    "prefix": "af",
+    "body": ["&::after{\n\tcontent:'';\n\t$0\n}"],
+    "description": "after"
+  },
+  "Before": {
+    "prefix": "be",
+    "body": ["&::before{\n\tcontent:'';\n\t$0\n}"],
+    "description": "before"
+  },
+  "inc": {
+    "prefix": "inc",
+    "body": ["@include $1"],
+    "description": "include"
+  },
+  "bg+": {
+    "prefix": "bg+",
+    "body": ["background: url(\"../img/\") center center / contain no-repeat;"],
+    "description": "bg+"
+  }
+}

@@ -1,0 +1,5 @@
+
+mixin container({tag = 'div'} = {}, mods)
+  - const allMods = mods && mods.split(',').map((mod) => `container--${mod.trim()}`).join(' ')
+  #{tag}.container(class=allMods)&attributes(attributes)
+    block

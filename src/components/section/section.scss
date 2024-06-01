@@ -1,0 +1,8 @@
+@layer component {
+  .section {
+    --space-bottom: 15px;
+    --space-bottom-neg: -15px;
+
+    margin-bottom: var(--space-bottom);
+  }
+}

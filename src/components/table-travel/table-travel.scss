@@ -1,0 +1,85 @@
+@layer component {
+  .table-travel {
+    &__rows {
+      width: 100%;
+      overflow: auto;
+    }
+
+    &__row {
+      --border-color: transparent;
+
+      display: grid;
+      grid-template-columns: 68px 176px 114px 86px minmax(582px, 1fr) 96px;
+      gap: 28px;
+      padding: 16px 16px 16px 24px;
+      background-color: cl(whte);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xs);
+
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+
+      @include mq-hover {
+        --border-color: #{cl(primary, 0.3)};
+      }
+    }
+
+    &__col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__col-title {
+      @include font(12px, 1.33);
+
+      margin-bottom: 8px;
+      color: cl(shared-third);
+    }
+
+    &__col-text {
+      @include font(14px, 1.71);
+
+      letter-spacing: -0.01em;
+    }
+
+    &__cities {
+      max-width: 562px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &__status {
+      @include font(12px, 1.33);
+
+      padding: 4px 8px;
+      overflow: hidden;
+      background-color: cl(shared-fourth);
+      border-radius: var(--radius-s);
+    }
+  }
+}
+
+@layer mod {
+  .table-travel {
+    &__col {
+      &--alt {
+        align-items: flex-end;
+      }
+
+      &--secondary {
+        align-items: center;
+      }
+    }
+
+    &__col-text {
+      &--alt {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+      }
+    }
+  }
+}

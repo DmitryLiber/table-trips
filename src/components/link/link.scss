@@ -1,0 +1,50 @@
+@layer component {
+  .link {
+    @include font(14px, 1.71);
+
+    color: cl(text-alt);
+    letter-spacing: -0.01em;
+    text-decoration: underline;
+    text-decoration-color: cl(text-alt, 0.2);
+    text-underline-offset: 6px;
+    transition: text-decoration-color $time;
+
+    @include mq-hover {
+      text-decoration-color: cl(text-alt1);
+    }
+  }
+}
+
+@layer mod {
+  .link--icon-prepend {
+    --icon-color: #{cl(text-alt)};
+
+    display: flex;
+    align-items: center;
+
+    &::before {
+      margin-right: 4px;
+      @include variable-icon(var(--icon), var(--icon-size), var(--icon-color));
+    }
+  }
+
+  .link--icon-append {
+    --icon-color: #{cl(text-alt)};
+
+    display: flex;
+    align-items: center;
+
+    &::after {
+      margin-left: 16px;
+      @include variable-icon(var(--icon), var(--icon-size), var(--icon-color));
+    }
+  }
+
+  .link--dashed {
+    text-decoration-style: dashed;
+  }
+
+  .link--small {
+    font-size: 12px;
+  }
+}

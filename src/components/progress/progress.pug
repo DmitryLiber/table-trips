@@ -1,0 +1,5 @@
+
+mixin progress(mods)
+  - const allMods = mods && mods.split(',').map((mod) => `progress--${mod.trim()}`).join(' ')
+  +section({tag: 'div'})
+    .progress(style='--percent: 30%;')

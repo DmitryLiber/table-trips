@@ -1,0 +1,12 @@
+mixin link({} = {}, mods)
+  - const allMods = mods && mods.split(',').map((mod) => `link--${mod.trim()}`).join(' ')
+
+  //- передан href — это ссылка
+  if (attributes.href)
+    a.link(class=allMods)&attributes(attributes)!= text
+      block
+
+  //- иначе это button
+  else
+    button.link(class=allMods)&attributes(attributes)!= text
+      block

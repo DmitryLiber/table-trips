@@ -1,0 +1,35 @@
+mixin modal
+  .modal
+    button.modal__close.close(aria-label='Закрыть')
+    .modal__content
+      b.modal__title
+      p.modal__text
+
+      form.modal__form.form.js-validation(
+        method='post',
+        action='/echo',
+        novalidate
+      )
+        each item in modal
+          p.form__field
+            input.modal__field.field(
+              id=`${item.id}`
+              type=`${item.type}`,
+              name=`${item.name}`,
+              value=`${item.mask}` ? item.mask : false,
+              required=`${item.required}` ? true : false
+            )
+            label(for=`${item.id}`)= item.label
+              if item.required
+                sup *
+        p.form__field
+          textarea#call-question.modal__textarea.field(
+            name='question',
+            required
+          )
+          label(for='call-question') Ваш вопрос
+            sup *
+
+        .form__footer
+          button.form__btn.btn(type='submit') Перезвоните мне
+          p.form__note Нажимая на кнопку "Оставить заявку" вы соглашаетесь #[br] с #[a(href='#') "Пользовательским соглашением"]

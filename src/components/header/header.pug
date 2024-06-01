@@ -1,0 +1,11 @@
+mixin header
+  block header
+  header.header
+    +container.header__wrapper
+      nav.header__nav
+        ul.header__nav-list
+          li.header__nav-item
+            a(href="javascript:void(0)").header__nav-link.active Поездки
+      .header__profile 
+        +link({}, 'icon-append, dashed')(href="javascript:void(0)").header__profile-logout Заболоцкий К.О
+      

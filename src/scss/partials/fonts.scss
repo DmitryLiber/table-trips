@@ -1,0 +1,17 @@
+// [ ] Подключаем шрифты, генератор https://www.fontconverter.io/en
+@mixin font-face($name, $weight) {
+  @font-face {
+    font-weight: $weight;
+    font-family: $name;
+    font-style: normal;
+    src: url('../fonts/' + $name + '-' + $weight + '.woff2') format('woff2'),
+      url('../fonts/' + $name + '-' + $weight + '.woff') format('woff');
+    font-display: swap;
+  }
+}
+
+@layer base {
+  @include font-face('inter', 400);
+  @include font-face('inter', 600);
+  @include font-face('inter', 700);
+}

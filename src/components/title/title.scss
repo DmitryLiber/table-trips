@@ -1,0 +1,8 @@
+@layer component {
+  .title {
+    @include font(16px, 1.5, 600);
+
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+}

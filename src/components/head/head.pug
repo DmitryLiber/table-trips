@@ -1,0 +1,84 @@
+mixin head
+  meta(charset='utf-8')
+  // не забыть удалить мета тег robots ниже
+  meta(name='robots', content='noindex,nofollow')
+  // не забыть удалить мета тег robots выше
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='format-detection', content='telephone=no')
+  block head
+  if pageTitle
+    title= pageTitle
+  meta(name='description', content=pageDescription || '')
+  meta(name='keywords', content=pageKeywords || '')
+  link(rel='stylesheet', href='/src/scss/main.scss')
+
+  //- // [ ] Меняем название шрифта
+  - const fonts = [400, 600, 700];
+  each font in fonts
+    link(
+      rel='preload',
+      href=`./fonts/inter-${font}.woff2`,
+      as='font',
+      crossorigin='anonymous'
+    )
+
+  //- // [ ] Подключаем favicon, генератор https://realfavicongenerator.net/
+  link(
+    rel='shortcut icon',
+    href='./img/favicon/favicon.ico',
+    type='image/x-icon'
+  )
+  link(rel='icon', href='./img/favicon/favicon.png')
+
+  - const appleIcons = [57, 60, 72, 76, 114, 120, 144, 152, 180];
+  each appleIconSize in appleIcons
+    link(
+      rel='apple-touch-icon',
+      sizes=`${appleIconSize}x${appleIconSize}`,
+      href=`./img/favicon/apple-touch-icon-${appleIconSize}x${appleIconSize}.png`
+    )
+
+  link(
+    rel='icon',
+    type='image/png',
+    href='./img/favicon/favicon-32x32.png',
+    sizes='32x32'
+  )
+  link(
+    rel='icon',
+    type='image/png',
+    href='./img/favicon/android-chrome-192x192.png',
+    sizes='192x192'
+  )
+  link(
+    rel='icon',
+    type='image/png',
+    href='./img/favicon/favicon-96x96.png',
+    sizes='96x96'
+  )
+  link(
+    rel='icon',
+    type='image/png',
+    href='./img/favicon/favicon-16x16.png',
+    sizes='16x16'
+  )
+  //- link(rel="manifest", href="./img/favicon/manifest.json")
+  link(
+    rel='mask-icon',
+    href='./img/favicon/safari-pinned-tab.svg',
+    color='#C2AB81'
+  )
+  meta(name='msapplication-TileColor', content='#272727')
+  meta(
+    name='msapplication-TileImage',
+    content='./img/favicon/mstile-144x144.png'
+  )
+  meta(name='theme-color', content='#C2AB81')
+  script.
+    var BASE_URL = './'; // заменить на путь к папке со статикой: css, js, img, fonts в битриксе
+  //- script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" )
+  script(type='module', src='/src/js/main.js')
+
+  if block
+    block

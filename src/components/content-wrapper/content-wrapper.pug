@@ -1,0 +1,8 @@
+mixin content-wrapper(className)
+  -
+    var attributes = {};
+    attributes.class = className;
+
+  main(class="content-wrapper")&attributes(attributes)
+    if block
+      block

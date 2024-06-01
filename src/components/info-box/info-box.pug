@@ -1,0 +1,4 @@
+
+mixin info-box({...data}, mods)
+  - const allMods = mods && mods.split(',').map((mod) => `info-box--${mod.trim()}`).join(' ')
+  span.info-box(title=data.text, class=allMods)&attributes(attributes)

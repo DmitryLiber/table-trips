@@ -1,0 +1,22 @@
+@layer component {
+  .progress {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 2px;
+    overflow: hidden;
+    background-color: cl(shared-second);
+    border-radius: var(--radius-xxxs) 0 0 var(--radius-xxxs);
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: var(--percent);
+      height: 100%;
+      background-color: cl(primary);
+      border-radius: var(--radius-xxxs) 0 0 var(--radius-xxxs);
+      content: '';
+    }
+  }
+}

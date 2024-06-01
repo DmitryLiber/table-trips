@@ -1,0 +1,18 @@
+extends ../pug/layout
+
+block vars
+  - page = 'home';
+
+block head
+  - pageTitle = 'Мои поездки';
+
+block content
+  +content-wrapper
+    +table-filter
+    +progress
+    +table-travel
+
+block modals
+
+block scripts
+  - jsName = '';

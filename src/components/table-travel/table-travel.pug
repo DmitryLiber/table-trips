@@ -1,0 +1,48 @@
+
+mixin table-travel(mods)
+  - const allMods = mods && mods.split(',').map((mod) => `table-travel--${mod.trim()}`).join(' ')
+  +section.table-travel(class=allMods)&attributes(attributes)
+    +container
+      .table-travel__rows
+        .table-travel__row
+          .table-travel__col
+            span.table-travel__col-title № поездки
+            +link(href="javascript:void(0)") 000115
+          .table-travel__col
+            span.table-travel__col-title Дата поездки
+            .table-travel__col-text 22.02.2024 - 27.02.2024
+          .table-travel__col.table-travel__col--alt
+            span.table-travel__col-title Сумма, план
+            .table-travel__col-text 29 400,00
+          .table-travel__col.table-travel__col--alt
+            span.table-travel__col-title Сумма, факт
+            .table-travel__col-text 29 400,00
+          .table-travel__col
+            span.table-travel__col-title Город
+            .table-travel__col-text.table-travel__col-text--alt
+              span.table-travel__cities Кременчуг-Константиновское, Петропавловск-Камчатский, Новосибирск, Волгоград, Саратов
+              +info-box({text: 'Кременчуг-Константиновское, Петропавловск-Камчатский, Новосибирск, Волгоград, Саратов'})
+          .table-travel__col.table-travel__col--secondary
+            span.table-travel__col-title Статус
+            span.table-travel__status Документы
+        each val in Array(25)
+          .table-travel__row
+            .table-travel__col
+              span.table-travel__col-title № поездки
+              +link(href="javascript:void(0)") 000115
+            .table-travel__col
+              span.table-travel__col-title Дата поездки
+              .table-travel__col-text 22.02.2024 - 27.02.2024
+            .table-travel__col.table-travel__col--alt
+              span.table-travel__col-title Сумма, план
+              .table-travel__col-text 29 400,00
+            .table-travel__col.table-travel__col--alt
+              span.table-travel__col-title Сумма, факт
+              .table-travel__col-text 29 400,00
+            .table-travel__col
+              span.table-travel__col-title Город
+              .table-travel__col-text
+                span.table-travel__cities Москва, Ярославль, Ижевск, Владимир
+            .table-travel__col.table-travel__col--secondary
+              span.table-travel__col-title Статус
+              span.table-travel__status Документы

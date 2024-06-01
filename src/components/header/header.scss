@@ -1,0 +1,53 @@
+@layer component {
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: var(--index-2);
+    background-color: cl(whte);
+    box-shadow: 0 4px 24px 0 rgba(#{cl(blck--rgb)}, 0.12);
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__nav-list {
+      @include reset-list;
+    }
+
+    &__nav-link {
+      @include font(14px, 1.71, 600);
+
+      --border-color: transparent;
+
+      display: block;
+      padding: 19.5px 12px;
+      letter-spacing: -0.01em;
+      border-bottom: 1px solid var(--border-color);
+      transition: border-color $time;
+
+      @include mq-hover {
+        --border-color: #{cl(primary)};
+      }
+    }
+
+    &__profile {
+      @include center;
+    }
+
+    &__profile-logout {
+      --icon: url('/img/i-logout.svg');
+      --icon-size: 16px;
+    }
+  }
+}
+
+@layer state {
+  .header {
+    &__nav-link {
+      &.active {
+        --border-color: #{cl(primary)};
+      }
+    }
+  }
+}

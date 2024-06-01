@@ -1,0 +1,23 @@
+
+mixin table-filter(mods)
+  - const allMods = mods && mods.split(',').map((mod) => `table-filter--${mod.trim()}`).join(' ')
+  +section.table-filter(class=allMods)&attributes(attributes)
+      +container.table-filter__head
+        +title Мои поездки
+        +btn({}, 'icon-prepend')(style='--icon:url("/img/i-plus.svg");--icon-size: 22px;') Оформить поездку
+      form.table-filter__controls(action="javascript:void(0)")
+        +container
+          .table-filter__fields
+            .field
+              button(type="button").field__clear.js-field-clear
+              label.field__label Период с:
+              input.field__box.js-input-date(type="text", placeholder="Выбрать...")
+            .field
+              button(type="button").field__clear.js-field-clear
+              label.field__label по:
+              input.field__box.js-input-date(type="text", placeholder="Выбрать...")
+          .field.field--icon-append.table-filter__search
+            input.field__box(type="search", placeholder="Поиск...")
+          +link({}, 'small, icon-prepend')(style='--icon:url("/img/i-cross.svg");--icon-size: 16px;', type="reset").js-reset-filter Сбросить все
+          .table-filter__addons
+            +checkbox({id: 'archive-tips', name: 'archive-tips'}) Показать архивные поездки
